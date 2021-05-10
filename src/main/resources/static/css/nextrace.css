@@ -1,0 +1,259 @@
+html, body, main, footer{
+    background-color: #212121;
+}
+
+.footer_main{
+    margin-left: 240px;
+    color: #FFFFFF;
+    padding-left: 70px;
+    padding-right: 70px;
+    width: inherit;
+    bottom: 0px;
+}
+
+.footer_login{
+    color: #FFFFFF;
+    padding-left: 70px;
+    padding-right: 70px;
+    position: absolute;
+    width: 100%;
+    bottom: 0px;
+}
+
+.sidebar{
+    color: #FFFFFF;
+    background-color: #121212;
+    float: left;
+    position: fixed;
+    width: 240px;
+    min-height: 100vh;
+}
+
+.sidebar ul li a{
+    color: white;
+    display: block;
+    padding: 7px 20px;
+    text-decoration: none;
+    width: 240px;
+}
+
+.sidebar a:hover{
+    background-color: #212121;
+}
+
+.sidebar-category{
+    padding-left: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    width: 240px;
+    color: rgba(255, 255, 255, 0.5);
+    border-top: 1px solid rgba(255,255,255,0.05);
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.logo{
+    color: #FFFFFF;
+    text-align: center;
+    min-height: 80px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.logo a{
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+.logo a:hover{
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+.page-top{
+    color: #FFFFFF;
+    padding-left: 240px;
+    padding: 20px 20px;
+    min-height: 80px;
+    background-color: #121212;
+    border-left: 1px solid rgba(255,255,255,0.05);
+}
+
+.page-top h3{
+    margin-left: 50px;
+}
+
+.add_category_container{
+    padding-left: 240px;
+    min-width: 750px;
+}
+
+.add_category{
+    border-radius: 5px;
+    background-color: rgba(255,255,255,0.12);
+    color: #FFFFFF;
+    margin-top: 50px;
+    margin-left: 100px;
+    margin-right: 100px;
+    padding-bottom: 1px;
+}
+
+.add_category_main{
+    border-radius: 5px;
+    background-color: rgba(255,255,255,0.12);
+    color: #FFFFFF;
+    margin-top: 50px;
+    padding-bottom: 1px;
+}
+
+.add_category_race{
+    border-radius: 5px;
+    background-color: rgba(255,255,255,0.12);
+    color: #FFFFFF;
+    margin-top: 24px;
+    padding-bottom: 1px;
+}
+
+.add_category_main tr{
+    max-height: 45px;
+}
+
+input[type=text]{
+    border-color: #121212;
+    background-color: #212121;
+    color: #FFFFFF;
+}
+
+input[type=text]:focus{
+    border-color: #121212;
+    background-color: #212121;
+    color: #FFFFFF;
+}
+
+input[type=url]{
+    border-color: #121212;
+    background-color: #212121;
+    color: #FFFFFF;
+}
+
+input[type=url]:focus{
+    border-color: #121212;
+    background-color: #212121;
+    color: #FFFFFF;
+}
+
+input[type=String]{
+    border-color: #121212;
+    background-color: #212121;
+    color: #FFFFFF;
+}
+
+input[type=String]:focus{
+    border-color: #121212;
+    background-color: #212121;
+    color: #FFFFFF;
+}
+
+input[type=int]{
+    border-color: #121212;
+    background-color: #212121;
+    color: #FFFFFF;
+}
+
+input[type=int]:focus{
+    border-color: #121212;
+    background-color: #212121;
+    color: #FFFFFF;
+}
+input[type=date]{
+    border-color: #121212;
+    background-color: #212121;
+    color: #FFFFFF;
+}
+
+input[type=date]:focus{
+    border-color: #121212;
+    background-color: #212121;
+    color: #FFFFFF;
+}
+
+input[type=float]{
+    border-color: #121212;
+    background-color: #212121;
+    color: #FFFFFF;
+}
+
+input[type=float]:focus{
+    border-color: #121212;
+    background-color: #212121;
+    color: #FFFFFF;
+}
+
+input[type=time]{
+    border-color: #121212;
+    background-color: #212121;
+    color: #FFFFFF;
+}
+
+input[type=time]:focus{
+    border-color: #121212;
+    background-color: #212121;
+    color: #FFFFFF;
+}
+
+
+.table>tbody>tr>td{
+    padding: 8px;
+    height: 45px;
+    color: #FFFFFF;
+    vertical-align: middle;
+    border-top-color: #2f3136;
+    border-bottom-color: #2f3136;
+}
+
+tr a{
+    text-decoration: none;
+    color: #FFFFFF;
+}
+
+tr a:hover{
+    text-decoration: none;
+    color: #FFFFFF;
+}
+
+.dot {
+    height: 23px;
+    width: 23px;
+    background-color: #bbb;
+    border-radius: 50%;
+    vertical-align: middle;
+    display: inline-block;
+}
+
+.flag{
+    border-radius: 5px;
+    vertical-align: middle;
+}
+
+.separator{
+    margin-left: -100px;
+    margin-right: -100px;
+    width: available;
+    height: 3px;
+    background-color: #212121;
+    color: #212121;
+}
+
+.stick th{
+    text-decoration: none;
+    color: #FFFFFF;
+    border-top-color: #2f3136;
+    border-bottom-color: #2f3136;
+    border-bottom: none;
+    box-shadow: inset 0 -1px #2f3136;
+}
+
+
+
+
+
+

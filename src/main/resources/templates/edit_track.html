@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Piotr Wasilewski">
+    <meta name="generator" content="NextRace 0.0.1">
+    <title>Next Race</title>
+
+    <link th:href="@{/css/nextrace.css}" rel="stylesheet">
+    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js" integrity="sha384-KsvD1yqQ1/1+IA7gi3P0tyJcT3vR+NdBTt13hSJ2lnve8agRGXTTyNaBYmCR/Nwi" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.min.js" integrity="sha384-nsg8ua9HAw1y0W1btsyWgBklPnCUAFLuTMS2G72MMONqmOymq585AcH49TLBQObG" crossorigin="anonymous"></script>
+
+</head>
+<body>
+<header>
+    <div class="sidebar" id="sidebar">
+        <div class="logo">
+            <a th:href="@{/nextraceapp}"><h3>NextRace App</h3></a>
+        </div>
+
+        <ul class="nav">
+            <li>
+                <h6 class="sidebar-category">Categories</h6>
+            </li>
+            <li>
+                <a th:href="@{/nextraceapp/category}">
+                    <i class="category-content"></i><span>Browse</span>
+                </a>
+            </li>
+            <li>
+                <a th:href="@{/nextraceapp/category/add}">
+                    <i class="category-content"></i><span>Add Category</span>
+                </a>
+            </li>
+        </ul>
+        <ul class="nav">
+            <li>
+                <h6 class="sidebar-category">Races</h6>
+            </li>
+            <li>
+                <a th:href="@{/nextraceapp/race}">
+                    <i class="category-content"></i><span>Browse</span>
+                </a>
+            </li>
+            <li>
+                <a th:href="@{/nextraceapp/race/event/list}">
+                    <i class="category-content"></i><span>Add Race</span>
+                </a>
+            </li>
+        </ul>
+        <ul class="nav">
+            <li>
+                <h6 class="sidebar-category">Race Tracks</h6>
+            </li>
+            <li>
+                <a th:href="@{/nextraceapp/track}">
+                    <i class="category-content"></i><span>Browse</span>
+                </a>
+            </li>
+            <li>
+                <a th:href="@{/nextraceapp/track/add}">
+                    <i class="category-content"></i><span>Add Race Track</span>
+                </a>
+            </li>
+        </ul>
+        <ul class="nav">
+            <li>
+                <h6 class="sidebar-category">Countires</h6>
+            </li>
+            <li>
+                <a th:href="@{/nextraceapp/country}">
+                    <i class="category-content"></i><span>Browse</span>
+                </a>
+            </li>
+            <li>
+                <a th:href="@{/nextraceapp/country/add}">
+                    <i class="category-content"></i><span>Add Country</span>
+                </a>
+            </li>
+        </ul>
+        <ul class="nav">
+            <li>
+                <h6 class="sidebar-category">API</h6>
+            </li>
+            <li>
+                <a th:href="@{/api/races}" target="_blank">
+                    <i class="category-content"></i><span>Races</span>
+                </a>
+            </li>
+            <li>
+                <a th:href="@{/api/tracks}" target="_blank">
+                    <i class="category-content"></i><span>Tracks</span>
+                </a>
+            </li>
+            <li>
+                <a th:href="@{/api/categories}" target="_blank">
+                    <i class="category-content"></i><span>Categories</span>
+                </a>
+            </li>
+            <div th:if="${#lists.size(categories) > 0}">
+                <div th:if="${#lists.size(categories) < 5}">
+                    <li th:each="i : ${#numbers.sequence(0, #lists.size(categories) -1, 1)}">
+                        <a th:href="@{/api/races/category/{name}(name = ${categories[i].getCategoryName()})}" target="_blank">
+                            <i class="category-content"></i><span th:text="${categories[i].categoryName}"></span>
+                        </a>
+                    </li>
+                </div>
+                <div th:if="${#lists.size(categories) > 4}">
+                    <li th:each="i : ${#numbers.sequence(0, 4, 1)}">
+                        <a th:href="@{/api/races/category/{name}(name = ${categories[i].getCategoryName()})}" target="_blank">
+                            <i class="category-content"></i><span th:text="${categories[i].categoryName}"></span>
+                        </a>
+                    </li>
+                </div>
+            </div>
+            <div th:if="${#lists.size(categories) == 0}">
+
+            </div>
+        </ul>
+    </div>
+</header>
+<main>
+    <div class="container" style="max-width: inherit; padding-left: 50px; padding-right: 50px">
+        <div class="row" style="margin-left: 240px">
+            <div class="col-sm-7">
+                <div class="add_category">
+                    <header class="card-header">
+                        <h4 class="card-title mt-2">Edit Race Track</h4>
+                    </header>
+                    <article class="card-body">
+                        <form name="addTrack" id="addDriver" action="#" th:action="@{/nextraceapp/track/update/{id}(id=${track.getId()})}" method="post">
+                            <div class="form-row">
+                                <div class="col form-group pb-3">
+                                    <label for="trackName">Race Track Name</label>
+                                    <input type="text" class="form-control" placeholder="" id="trackName" th:field="${track.name}">
+                                </div>
+                            </div>
+                            <div class="form-group pb-3">
+                                <label>Country:</label><br>
+                                <select class="bg-dark text-light" th:field="${track.country}">
+                                    <option th:each="p : ${country_list}" th:value="${p.getId()}" th:text="${p.name}"></option>
+                                </select>
+                            </div>
+                            <div class="form-row">
+                                <div class="col form-group pb-3">
+                                    <label for="trackLayout">Track Layout URL</label>
+                                    <input type="url" class="form-control" placeholder="" id="trackLayout" th:field="${track.layout}">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="col form-group pb-3">
+                                    <label for="trackLength">Race Track Length [m]</label>
+                                    <input type="text" class="form-control" placeholder="" id="trackLength" th:field="${track.length}">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="col form-group pb-3">
+                                    <label for="trackCornerCount">Number of turns</label>
+                                    <input type="text" class="form-control" placeholder="" id="trackCornerCount" th:field="${track.turnCount}">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="col form-group pb-3">
+                                    <label for="trackRecord">Lap Record- XX:XX.XXX</label>
+                                    <input type="text" class="form-control" placeholder="" id="trackRecord" th:field="${track.lapRecord}">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="col form-group pb-3">
+                                    <label for="trackRecordHolder">Who set the fastest lap</label>
+                                    <input type="text" class="form-control" placeholder="" id="trackRecordHolder" th:field="${track.personRecord}">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary btn-block">Edit</button>
+                            </div>
+                        </form>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="pb-5"></div>
+</main>
+<footer class="footer_main">
+    <a class="text-decoration-none float-end" href="#"><button type="button" class="btn btn-sm btn-outline-secondary">Wróć na górę</button></a>
+    <p>&copy; 2021 Piotr Wasilewski</p>
+</footer>
+</body>
+</html>
