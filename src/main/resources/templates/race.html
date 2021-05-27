@@ -159,8 +159,8 @@
                                         <td th:text="${#dates.format(b.date, 'dd-MM-yyyy')}"></td>
                                         <td th:text="${b.cetTime}"></td>
                                         <td>
-                                            <a class="text-decoration-none float-end" th:href="@{/race/delete/{id}(id=${races[a].getId()})}"><button type="button" class="btn btn-sm btn-outline-danger">Delete</button></a>
-                                            <a class="text-decoration-none float-end pe-2" th:href="@{/race/edit/{id}(id=${races[a].getId()})}"><button type="button" class="btn btn-sm btn-outline-success">Edit</button></a>
+                                            <a class="text-decoration-none float-end" th:href="@{race/delete/{id}(id=${races[a].getId()})}"><button type="button" class="btn btn-sm btn-outline-danger">Delete</button></a>
+                                            <a class="text-decoration-none float-end pe-2" th:href="@{race/edit/{id}(id=${races[a].getId()})}"><button type="button" class="btn btn-sm btn-outline-success">Edit</button></a>
                                         </td>
                                     </tr>
                                 </div>

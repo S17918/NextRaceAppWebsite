@@ -9,7 +9,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-@RequestMapping("/nextraceapp")
 @Controller
 public class RaceController {
 
@@ -25,7 +24,7 @@ public class RaceController {
     @Autowired
     private EventListRepository eventListRepository;
 
-    @RequestMapping(path="/race")
+    @RequestMapping(path="/nextraceapp/race")
     public String race(Model model){
         Race race = new Race();
         model.addAttribute("race", race);
@@ -35,7 +34,7 @@ public class RaceController {
         return "race";
     }
 
-    @RequestMapping(path="/race/add")
+    @RequestMapping(path="/nextraceapp/race/add")
     public String add_race(Model model){
         Race race = new Race();
 
@@ -45,7 +44,7 @@ public class RaceController {
         return "add_race";
     }
 
-    @PostMapping("/race/add/succes")
+    @PostMapping("/nextraceapp/race/add/succes")
     public String addRace(Race race, Model model){
         EventList eventList = EventListModelTransporter.getEventList();
         race.setEventList(eventList);
@@ -57,7 +56,7 @@ public class RaceController {
         return "redirect:/nextraceapp/race";
     }
 
-    @GetMapping("/race/edit/{id}")
+    @GetMapping("/nextraceapp/race/edit/{id}")
     public String editRace(@PathVariable("id") long id, Model model){
         Race race = raceRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Invalid race id: " + id));
@@ -72,7 +71,7 @@ public class RaceController {
         return("edit_race");
     }
 
-    @PostMapping("/race/update/{id}")
+    @PostMapping("/nextraceapp/race/update/{id}")
     public String updateRace(@PathVariable("id") long id, Race race, Model model){
         race.setId(id);
         race.setEventList(EventListModelTransporter.getEventList());
@@ -86,7 +85,7 @@ public class RaceController {
         return "redirect:/nextraceapp/race";
     }
 
-    @GetMapping("/race/delete/{id}")
+    @GetMapping("/nextraceapp/race/delete/{id}")
     public String deleteRace(@PathVariable("id") long id, Model model){
         Race race = raceRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Invalid race id: " + id));

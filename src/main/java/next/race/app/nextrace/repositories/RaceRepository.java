@@ -4,6 +4,7 @@ import next.race.app.nextrace.models.Race;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
+import org.springframework.security.core.parameters.P;
 
 import java.util.List;
 
@@ -20,5 +21,8 @@ public interface RaceRepository extends CrudRepository<Race, Long> {
 
     @Query(value = "SELECT * FROM race INNER JOIN event_list_events ON race.event_list_id = event_list_events.event_list_id INNER JOIN event ON event_list_events.events_id = event.id WHERE event.type = 'Race' ORDER BY event.date ASC;", nativeQuery = true)
     List<Race> sortByDate();
+
+    @Query(value = "SELECT * FROM race INNER JOIN event_list_events ON race.event_list_id = event_list_events.event_list_id INNER JOIN event ON event_list_events.events_id = event.id WHERE event.type = 'Race' AND event.date LIKE %:DATE% ORDER BY event.date ASC;", nativeQuery = true)
+    List<Race> findByDate(@Param("DATE") String date);
 
 }

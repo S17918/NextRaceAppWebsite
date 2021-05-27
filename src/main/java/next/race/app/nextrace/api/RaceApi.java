@@ -34,6 +34,13 @@ public class RaceApi {
         return raceRepository.sortByDate();
     }
 
+    @GetMapping("/races/{year}/{month}")
+    public List<Race> getRacesByDate(@PathVariable("year") String year, @PathVariable("month") String month){
+        String date = year + '-' + month;
+        List<Race> raceByDate = raceRepository.findByDate(date);
+        return raceByDate;
+    }
+
 
     @GetMapping("/races/category/{cat_name}")
     public List<Race> getRacesByCategory(@PathVariable("cat_name") String cat_name){
